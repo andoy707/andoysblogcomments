@@ -1,32 +1,34 @@
-<div id="graphcomment"></div>
-<script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GraphComment Integration</title>
+</head>
+<body>
+  <h1>Welcome to My Blog</h1>
+  <div id="graphcomment"></div>
+  <script type="text/javascript">
+    /* - - - CONFIGURATION VARIABLES - - - */
+    var __semio__params = {
+      graphcommentId: "andoysblog", // make sure the id matches your GraphComment account
 
-  /* - - - CONFIGURATION VARIABLES - - - */
+      behaviour: {
+        // Use the page path as a unique ID for the comments thread
+        uid: window.location.pathname
+      }
+    };
 
-  var __semio__params = {
-    graphcommentId: "andoysblog", // make sure the id is yours
+    /* - - - DON'T EDIT BELOW THIS LINE - - - */
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params);
+    }
 
-    behaviour: {
-      // HIGHLY RECOMMENDED
-      //  uid: "...", // uniq identifer for the comments thread on your page (ex: your page id)
-    },
-
-    // configure your variables here
-
-  }
-
-  /* - - - DON'T EDIT BELOW THIS LINE - - - */
-
-  function __semio__onload() {
-    __semio__gc_graphlogin(__semio__params)
-  }
-
-
-  (function() {
-    var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
-    gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
-  })();
-  
-
-</script>
+    (function() {
+      var gc = document.createElement('script'); gc.type = 'text/javascript'; gc.async = true;
+      gc.onload = __semio__onload; gc.defer = true; gc.src = 'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(gc);
+    })();
+  </script>
+</body>
+</html>
